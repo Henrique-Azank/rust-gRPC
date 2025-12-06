@@ -1,0 +1,16 @@
+[package]
+name = "rust-gRPC"
+version = "0.1.0"
+edition = "2024"
+
+[[bin]]
+name = "rust-gRPC"
+path = "src/main.rs"
+
+[lib]
+name = "rust_grpc"
+path = "src/lib.rs"
+
+[dependencies]
+
+
