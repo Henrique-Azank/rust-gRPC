@@ -1,0 +1,58 @@
+// Copyright 2015 gRPC authors.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+// Defines how the compiler should interpret this file.
+syntax = "proto3";
+
+// Defines the package for the generated code.
+package weathergrpc;
+
+// Interface exported by the server.
+service WeatherService {
+
+    // Define a method for fetching weather information.
+    rpc GetWeather (Point) returns (Weather) {}
+
+}
+
+// Message expected by the server
+// Defines a geographical point with latitude and longitude.
+message Point {
+
+    // NOTE: We assume that latitude and longitude are expressed as
+    // floats in degrees following the EPSG:4326 standard.
+
+    // Latitude of the point
+    float latitude = 1;
+
+    // Longitude of the point
+    float longitude = 2;
+
+}
+
+// Message returned by the server
+// Defines a weather report for the provided point.
+message Weather {
+
+    // Temperature in Celsius
+    float temperature = 1;
+
+    // Humidity as a percentage
+    float humidity = 2;
+
+    // Description of the weather conditions (e.g., "sunny", "cloudy")
+    string description = 3;
+
+}
+

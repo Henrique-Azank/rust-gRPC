@@ -72,3 +72,20 @@ message Person {
 ```
 
 The proto compiler is invoked at build time on `.proto` files to generate code. Each generated class contains simple accessors for each field and methods to serialize and parse the whole structure to and from raw bytes.
+
+## Rust Implementation
+
+Following the previosly exposed theory behind RPC and gRPC, we can proceed with the definition of our RUST-based implementation
+
+We need to:
+- Define the application gRPC service 
+- Define our application Method
+- Define our request and response types using protocol Buffers
+
+The service will provide:
+- An RPC method called **GetWeather** that the server will implement
+- The **Point** and **Weather** data structs that will be exchanged between the server and the client when **GetWeather** is called
+  - The client will provide a **Point** data struct in the request, and the client will respond with a **Weather** data struct. 
+
+
+
