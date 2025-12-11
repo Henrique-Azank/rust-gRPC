@@ -7,10 +7,24 @@ edition = "2024"
 name = "rust-gRPC"
 path = "src/main.rs"
 
+[[bin]] 
+name = "helloworld-server"
+path = "src/tonics/server.rs"
+
+[[bin]] 
+name = "helloworld-client"
+path = "src/tonics/client.rs"
+
 [lib]
 name = "rust_grpc"
 path = "src/lib.rs"
 
 [dependencies]
+tonic = "*"
+prost = "0.14"
+tonic-prost = "*"
+tokio = { version = "1.0", features = ["macros", "rt-multi-thread"] }
 
+[build-dependencies]
+tonic-prost-build = "*"
 

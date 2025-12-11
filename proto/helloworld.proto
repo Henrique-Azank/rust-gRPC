@@ -1,0 +1,28 @@
+
+// Instantiate the syntax
+syntax = "proto3";
+
+// Definition of the package name
+package helloworld;
+
+// Services provided by the package
+
+// Service definition
+service Greeter {
+    // Our SayHello rpc accepts HelloRequests and returns HelloReplies
+    rpc SayHello (HelloRequest) returns (HelloReply);
+}
+
+// Message definitions for the package
+
+// Request message definition
+message HelloRequest {
+    // Request message contains the name to be greeted
+    string name = 1;
+}
+
+// Reply message definition
+message HelloReply {
+    // Reply contains the greeting message
+    string message = 1;
+}
